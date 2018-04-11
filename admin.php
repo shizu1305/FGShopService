@@ -1,5 +1,7 @@
 <?php
   //path system
+  define('PATH_ROOT', __DIR__);
+  define('PATH_PUBLIC', __DIR__.'/public');
   define('PATH_SYSTEM', __DIR__.'/system');
   define('PATH_APPLICATION', __DIR__.'/admin');
   define('PATH_MODEL', __DIR__.'/model');
