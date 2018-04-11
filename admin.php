@@ -2,6 +2,7 @@
   //path system
   define('PATH_SYSTEM', __DIR__.'/system');
   define('PATH_APPLICATION', __DIR__.'/admin');
+  define('PATH_MODEL', __DIR__.'/model');
 
   //Get Parameter config
   require (PATH_SYSTEM . '/config/config.php');
