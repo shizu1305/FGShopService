@@ -13,6 +13,8 @@ class FT_Controller {
   protected $library  = null;
   //Object helper
   protected $helper   = null;
+  //Object database
+  protected $database   = null;
 
   public function __construct() {
     //Loader for config
@@ -23,6 +25,10 @@ class FT_Controller {
     //Loader Library
     require_once PATH_SYSTEM . '/core/loader/FT_Library_Loader.php';
     $this->library = new FT_Library_Loader();
+
+    // Connect database
+    require_once PATH_SYSTEM . '/database/FT_Database.php';
+    $this->database = FT_Database::instance();
 
     //Loader Helper
     require_once PATH_SYSTEM . '/core/loader/FT_Helper_Loader.php';
