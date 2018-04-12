@@ -2,7 +2,7 @@
 /**
 *
 */
-class Favorite_Model extends Model
+class Favorite_Model
 {
 
   public $id_product;

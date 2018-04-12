@@ -2,7 +2,7 @@
 /**
 *
 */
-class Comment_Model extends Model
+class Comment_Model
 {
 
   public $id;

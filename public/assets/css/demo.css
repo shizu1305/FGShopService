@@ -68,3 +68,31 @@
 .table-upgrade td:nth-child(3){
     text-align: center;
 }
+
+#table_null {
+  text-align: center;
+  font-size: 1em;
+}
+
+.pagination {
+    text-align: center;
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}

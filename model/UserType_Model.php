@@ -2,7 +2,7 @@
 /**
 *
 */
-class UserType_Model extends Model
+class UserType_Model
 {
 
   public $id;
@@ -26,7 +26,7 @@ class UserType_Model extends Model
       $user_type = new UserType_Model();
       $user_type->id = $row['id'];
       $user_type->name_user_type = $row['name_user_type'];
-      $list_user_type[] = $user_type; 
+      $list_user_type[] = $user_type;
     }
     return $list_user_type;
   }

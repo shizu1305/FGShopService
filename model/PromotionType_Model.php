@@ -2,7 +2,7 @@
 /**
 *
 */
-class PromotionType_Model extends Model
+class PromotionType_Model
 {
 
   public $id;

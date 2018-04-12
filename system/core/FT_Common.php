@@ -18,7 +18,7 @@
     $controller = ucfirst(strtolower(($controller))) . '_Controller';
 
     //Convert name action because format is {name}Action
-    $action = strtolower($action) . 'Action';
+    $action = strtolower($action);
 
     //Check file controller is exists
     if (!file_exists(PATH_APPLICATION . '/controller/' . $controller . '.php')) {

@@ -13,7 +13,7 @@ class FT_Model_Loader
         // Nếu thư viện chưa được load thì thực hiện load
         if ( empty($this->{$model}) )
         {
-            // Chuyển chữ hoa đầu và thêm hậu tố _Library
+            // Chuyển chữ hoa đầu và thêm hậu tố _Model
             $class = ucfirst($model) . '_Model';
             require_once(PATH_ROOT . '/model/' . $class . '.php');
             $this->{$model} = new $class();
