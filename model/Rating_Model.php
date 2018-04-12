@@ -2,7 +2,7 @@
 /**
 *
 */
-class Rating_Model extends Model
+class Rating_Model
 {
 
   public $id;

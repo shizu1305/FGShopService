@@ -2,7 +2,7 @@
 /**
 *
 */
-class Brand_Model extends Model
+class Brand_Model
 {
 
   public $id;

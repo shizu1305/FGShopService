@@ -2,7 +2,7 @@
 /**
 *
 */
-class Image_Model extends Model
+class Image_Model
 {
 
   public $id;

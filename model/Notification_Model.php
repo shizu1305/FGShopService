@@ -2,7 +2,7 @@
 /**
 *
 */
-class Notification_Model extends Model
+class Notification_Model
 {
 
   public $id;

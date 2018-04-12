@@ -2,7 +2,7 @@
 /**
 *
 */
-class Report_Model extends Model
+class Report_Model
 {
 
   public $id_user;

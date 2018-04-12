@@ -2,7 +2,7 @@
 /**
 *
 */
-class GroupProductType_Model extends Model
+class GroupProductType_Model
 {
 
   public $id;

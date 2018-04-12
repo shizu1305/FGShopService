@@ -2,7 +2,7 @@
 /**
 *
 */
-class Payment_Model extends Model
+class Payment_Model
 {
 
   public $id;

@@ -2,7 +2,7 @@
 /**
 *
 */
-class Order_Model extends Model
+class Order_Model
 {
 
   public $id;
