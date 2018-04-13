@@ -53,14 +53,27 @@ class Users_Model
     return $list_users;
   }
 
+  public function getNumRow() {
+    $conn = FT_Database::instance()->getConnection();
+    $stmt = $conn->prepare("SELECT id FROM users");
+
+    $stmt->execute();
+    $stmt->bind_result($id);
+    $stmt->store_result();
+    /*Fetch the value*/
+    $stmt->fetch();
+
+    return $stmt->num_rows;
+  }
+
   public function getTable($pages){
 
     //set the number of items to display per page
     $items_per_page = 10;
 
     $conn = FT_Database::instance()->getConnection();
-    //$sql = 'select * from users LIMIT ' . $items_per_page . ' OFFSET ' . $pages;
-    $sql = 'select * from users';
+    $sql = 'select * from users LIMIT ' . $items_per_page . ' OFFSET ' . $pages;
+    //$sql = 'select * from users';
     $result = mysqli_query($conn, $sql);
     $lists = array();
 
@@ -72,15 +85,22 @@ class Users_Model
       $user_type = new UserType_Model();
       $object = $user_type->findById($row['id_user_type']);
       $role = $object->name_user_type;
+      $id = $row['id'];
       $lists[] = [
-        '#' => $row['id'],
+        '#' => $id,
         'Username' => $row['username'],
         'Name' => $row['name'],
         'Gender' => $row['gender'],
         'Birthdate' => $row['birthdate'],
         'Identify' => $row['identify_number'],
         'Wallet' => $row['wallet'],
-        'Role' => $role
+        'Role' => $role,
+
+        '<div class="text-center"><i class="ti-pencil-alt"></i></div>' =>
+        '<div class="text-center"><a href="#"><i class="ti-pencil-alt"></i></a></div>',
+
+        '<div class="text-center"><i class="ti-close"></i></div>' =>
+        '<div class="text-center"><a href="#"><i class="ti-close"></i></a></div>',
       ];
     }
     return $lists;
@@ -159,7 +179,6 @@ class Users_Model
   }
 
   public function validate_logout($token) {
-
     $conn = FT_Database::instance()->getConnection();
     $stmt = $conn->prepare("SELECT id FROM users WHERE token = ?");
 
