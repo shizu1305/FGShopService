@@ -190,7 +190,7 @@
     <!--   Core JS Files   -->
     <script src="public/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="public/assets/js/bootstrap.min.js" type="text/javascript"></script>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="public/assets/js/bootstrap-checkbox-radio.js"></script>
 
