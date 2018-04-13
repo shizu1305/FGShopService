@@ -8,19 +8,19 @@ class User_Controller extends Base_Controller
     */
     public function index()
     {
-        if (isset($_GET['pages'])) {
-            $pages = isset($_GET['pages']);
-        } else {
-            $pages = 0;
-        }
-        echo $pages;
+        $pages = isset($_GET['pages']) ? $_GET['pages'] : 0;
+        $token = isset($_GET['token']) ? $_GET['token'] : "null";
         $this->model->load('Users');
         $list_user = $this->model->Users->getTable($pages);
+        $num_rows = $this->model->Users->getNumRow();
         $data = array(
-            'title' => 'index',
+            'token' => $token,
+            'pages' => $pages,
+            'title' => 'dashboard',
             'table_name' => 'Users Table',
             'table_subtitle' => 'Here is a table users',
-            'list' => $list_user
+            'list' => $list_user,
+            'num_rows' => $num_rows
         );
 
         // Load view
@@ -146,7 +146,7 @@ class User_Controller extends Base_Controller
 
                 if ($admin_midlleware) {
                     $token = $this->model->Users->generate_token($id);
-                    redirect_to(URL . "controller=user&action=index&token=$token");
+                    redirect_to(URL . "controller=user&action=index&pages=0&token=$token");
                 } else {
                    redirect_to(URL . 'controller=utils&action=error&message=Not%20permission');
                 }
@@ -165,6 +165,7 @@ class User_Controller extends Base_Controller
 
     public function logout() {
         if(isset($_GET['token'])) {
+            $token = $_GET['token'];
             $this->model->load('Users');
             $id = $this->model->Users->validate_logout($_GET['token']);
             if($id != 0) {

@@ -35,14 +35,22 @@
                             </div>
                             <div class="text-center">
                                 <div class="pagination">
-                                  <a href="#">&laquo;</a>
-                                  <a href="admin.php?controller=utils&action=dashboard&token=<?=$token?>&page=20">1</a> <!--  class="active" -->
-                                  <a href="admin.php?controller=utils&action=dashboard&token=<?=$token?>&page=20">2</a>
-                                  <a href="admin.php?controller=utils&action=dashboard&token=<?=$token?>&page=30">3</a>
-                                  <a href="admin.php?controller=utils&action=dashboard&token=<?=$token?>&page=40">4</a>
-                                  <a href="admin.php?controller=utils&action=dashboard&token=<?=$token?>&page=50">5</a>
-                                  <a href="admin.php?controller=utils&action=dashboard&token=<?=$token?>&page=60">6</a>
-                                  <a href="#">&raquo;</a>
+                                  <?php
+                                  $paginations = ceil($num_rows / 10);
+                                  $laquo = $pages == 0 ? $pages : $pages - 10;
+                                  $raquo = ($pages == (($paginations - 1) * 10)) ? $pages : $pages + 10;
+                                  echo "<a href='admin.php?controller=user&action=index&pages=$laquo&token=$token'>&laquo;</a>";
+                                  for ($i=0; $i < $paginations; $i++) {
+                                    $index = $i + 1;
+                                    $pages_index = $i * 10;
+                                    if ($i == ceil($pages / 10)) {
+                                      echo "<a href='admin.php?controller=user&action=index&pages=$pages_index&token=$token' class='active'>$index</a>";
+                                    } else {
+                                      echo "<a href='admin.php?controller=user&action=index&pages=$pages_index&token=$token'>$index</a>";
+                                    }
+                                  }
+                                  echo "<a href='admin.php?controller=user&action=index&pages=$raquo&token=$token'>&raquo;</a>";
+                                  ?>
                                 </div>
                             </div>
                         </div>

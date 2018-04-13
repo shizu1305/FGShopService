@@ -35,48 +35,10 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-background-color="white" data-active-color="danger">
 
-    <!--
-		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
-		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
-	-->
-
-    	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="#" class="simple-text">
-                    FGShop
-                </a>
-            </div>
-
-            <ul class="nav">
-                <li class="active">
-                    <a href="admin.php?controller=utils&action=dashboard&token=<?=$token?>">
-                        <i class="ti-panel"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="admin.php?controller=utils&action=user&token=<?=$token?>">
-                        <i class="ti-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="admin.php?controller=utils&action=table&token=<?=$token?>">
-                        <i class="ti-view-list-alt"></i>
-                        <p>Table List</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="admin.php?controller=utils&action=notifications&token=<?=$token?>">
-                        <i class="ti-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-            </ul>
-    	</div>
-    </div>
+    <?php if ( ! defined('PATH_PUBLIC')) die ('Bad requested!');
+                    require_once(PATH_PUBLIC . '/template/admin/sidebar.php');
+            ?>
 
     <div class="main-panel">
         <nav class="navbar navbar-default">
@@ -88,7 +50,7 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Dashboard</a>
+                    <a class="navbar-brand" href='<?="admin.php?controller=user&action=index&pages=0&token=$token"?>'>Dashboard</a>
                 </div>
            <?php if ( ! defined('PATH_PUBLIC')) die ('Bad requested!');
                     require_once(PATH_PUBLIC . '/template/admin/navbar_collapse.php');
@@ -246,14 +208,9 @@
 
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 	<script src="public/assets/js/demo.js"></script>
-
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
     	$(document).ready(function(){
-
-        	demo.initChartist();
             demo.showNotification('top','center');
-
     	});
-	</script>
-
+	</script> -->
 </html>
