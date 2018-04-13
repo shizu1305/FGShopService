@@ -165,13 +165,14 @@
                 </div>
 
                 </div>
-
                 <div class="row">
-                     <?php if ( ! defined('PATH_PUBLIC')) die ('Bad requested!');
-                        require_once(PATH_PUBLIC . '/template/admin/table.php');
-                    ?>
-                </div>
 
+                <?php
+                if ($action_table != null) {
+                  if ( ! defined('PATH_PUBLIC')) die ('Bad requested!');
+                        require_once(PATH_PUBLIC . '/template/admin/'.$action_table.'.php');
+                    }
+                ?>
                 </div>
             </div>
         </div>
@@ -208,9 +209,17 @@
 
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 	<script src="public/assets/js/demo.js"></script>
-	<!-- <script type="text/javascript">
+	<script type="text/javascript">
     	$(document).ready(function(){
-            demo.showNotification('top','center');
+            //demo.showNotification('top','center');
     	});
-	</script> -->
+
+        function update() {
+            demo.showNotification('top','center', 'You have updated' , 'ti-write');
+        }
+
+        function create() {
+            demo.showNotification('top','center', 'You have created' , 'ti-save');
+        }
+	</script>
 </html>

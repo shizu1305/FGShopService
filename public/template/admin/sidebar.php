@@ -14,7 +14,7 @@
 
             <ul class="nav">
                 <li <?php echo $title == 'dashboard' ? "class='active'" : "" ?> >
-                    <a href="admin.php?controller=utils&action=dashboard&token=<?=$token?>">
+                    <a href='<?="admin.php?controller=user&action=index&pages=0&token=$token"?>'>
                         <i class="ti-panel"></i>
                         <p>Dashboard</p>
                     </a>

@@ -101,14 +101,14 @@ class Users_Model
             dangerMode: true,
           }).then(function(isConfirm) {
             if (isConfirm) {
-              window.location.href = '".$href."';
               swal({
                 title: 'Shortlisted!',
                 text: 'Candidates are successfully shortlisted!',
-                icon: 'success'
+                icon: 'success',
               }).then(function() {
                 form.submit(); // <--- submit form programmatically
               });
+              window.location.href = '".$href."';
             } else {
               swal('Cancelled', 'Your imaginary file is safe :)', 'error');
             }
@@ -136,7 +136,7 @@ class Users_Model
   public function save(){
     $conn = FT_Database::instance()->getConnection();
     $stmt = $conn->prepare("INSERT INTO users (name, username, password, birthdate, phone, gender, identify_number, wallet, is_social, status, token, id_user_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssssssss", $this->name, $this->username, $this->password, $this->birthdate, $this->phone, $this->getnder, $this->identify_number, $this->wallet, $this->is_social, $this->status, $this->token, $this->id_user_type);
+    $stmt->bind_param("sssssssisssi", $this->name, $this->username, $this->password, $this->birthdate, $this->phone, $this->gender, $this->identify_number, $this->wallet, $this->is_social, $this->status, $this->token, $this->id_user_type);
     $rs = $stmt->execute();
     $this->id = $stmt->insert_id;
     $stmt->close();
@@ -175,8 +175,8 @@ class Users_Model
 	}
 	public function update(){
 		$conn = FT_Database::instance()->getConnection();
-		$stmt = $conn->prepare("UPDATE users SET name = ?, username = ?, password = ?, birthdate = ?, phone = ?, gender = ?, identify_number = ?, wallet = ?, is_social = ?, status = ?, token = ?, id_user_type WHERE id=?");
-		$stmt->bind_param("ssssssssssssi", $this->name, $this->username, $this->password, $this->birthdate, $this->phone, $this->getnder, $this->identify_number, $this->wallet, $this->is_social, $this->status, $this->token, $this->id_user_type, $_POST['id']);
+		$stmt = $conn->prepare("UPDATE users SET name = ?, username = ?, password = ?, birthdate = ?, phone = ?, gender = ?, identify_number = ?, wallet = ?, is_social = ?, status = ?, token = ?, id_user_type = ? WHERE id=?");
+		$stmt->bind_param("sssssssisssii", $this->name, $this->username, $this->password, $this->birthdate, $this->phone, $this->gender, $this->identify_number, $this->wallet, $this->is_social, $this->status, $this->token, $this->id_user_type, $_GET['id']);
 		$stmt->execute();
 		$stmt->close();
 	}

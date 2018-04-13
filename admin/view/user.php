@@ -198,15 +198,15 @@
                     <div class="col-lg-8 col-md-7">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Edit Profile</h4>
+                                <h4 class="title">Edit Users</h4>
                             </div>
                             <div class="content">
                                 <form>
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>Company</label>
-                                                <input type="text" class="form-control border-input" disabled placeholder="Company" value="Creative Code Inc.">
+                                                <label>#</label>
+                                                <input type="text" class="form-control border-input" disabled placeholder="Company" value="ID">
                                             </div>
                                         </div>
                                         <div class="col-md-3">

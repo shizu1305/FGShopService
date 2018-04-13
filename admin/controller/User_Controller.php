@@ -14,18 +14,72 @@ class User_Controller extends Base_Controller
         $list_user = $this->model->Users->getTable($pages, $token);
         $num_rows = $this->model->Users->getNumRow();
         $data = array(
+            'action_table' => 'table',
             'token' => $token,
             'pages' => $pages,
             'title' => 'dashboard',
             'table_name' => 'Users Table',
             'table_subtitle' => 'Here is a table users',
             'list' => $list_user,
-            'num_rows' => $num_rows
+            'num_rows' => $num_rows,
         );
 
         // Load view
         $this->view->load('dashboard', $data);
     }
+
+    /**
+    * action edit: show form edit a user
+    * method: GET
+    */
+    public function edit()
+    {
+        $token = isset($_GET['token']) ? $_GET['token'] : "null";
+        $this->model->load('Users');
+        $users = $this->model->Users->findById($_GET['id']);
+
+        $this->model->load('UserType');
+        $user_types = $this->model->UserType->all();
+
+        $data = array(
+            'action_table' => 'edit_user',
+            'action_name' => 'Edit User',
+            'token' => $token,
+            'title' => 'dashboard',
+            'users' => $users,
+            'user_types' => $user_types,
+        );
+
+        // Load view
+        $this->view->load('dashboard', $data);
+    }
+
+     /**
+    * action edit: update user database
+    * method: POST
+    */
+    public function update()
+    {
+        $this->model->load('Users');
+        //echo isset($_POST['username']) ? $_POST['username'] : 'null';
+        $users = $this->model->Users->findById($_GET['id']);
+        $users->name = $_POST['name'];
+        $users->username = $_POST['username'];
+        $users->password = $_POST['password'];
+        $users->birthdate = $_POST['birthdate'];
+        $users->phone = $_POST['phone'];
+        $users->gender = $_POST['gender'];
+        $users->identify_number = $_POST['identify_number'];
+        $users->wallet = $_POST['wallet'];
+        $users->is_social = $_POST['is_social'];
+        $users->status = $_POST['status'];
+        $users->id_user_type = $_POST['id_user_type'];
+        $users->update();
+
+        go_back();
+
+    }
+
 
     /**
     * action show: show a user
@@ -50,7 +104,21 @@ class User_Controller extends Base_Controller
     */
     public function create()
     {
-        $this->view->load('users/create');
+        $token = isset($_GET['token']) ? $_GET['token'] : "null";
+
+        $this->model->load('UserType');
+        $user_types = $this->model->UserType->all();
+
+        $data = array(
+            'action_table' => 'add_user',
+            'action_name' => 'Add User',
+            'token' => $token,
+            'title' => 'dashboard',
+            'user_types' => $user_types,
+        );
+
+        // Load view
+        $this->view->load('dashboard', $data);
     }
 
      /**
@@ -59,50 +127,23 @@ class User_Controller extends Base_Controller
     */
     public function store()
     {
-        $this->model->load('User');
-        $this->model->User->email = $_POST['email'];
-        $this->model->User->password = $_POST['password'];
-        $this->model->User->role = $_POST['role'];
-        $this->model->User->status = $_POST['status'];
-        $this->model->User->token = csrf_token();
-        $this->model->User->save();
+        $this->model->load('Users');
+        $this->model->Users->name = $_POST['name'];
+        $this->model->Users->username = $_POST['username'];
+        $this->model->Users->password = $_POST['password'];
+        $this->model->Users->birthdate = $_POST['birthdate'];
+        $this->model->Users->phone = $_POST['phone'];
+        $this->model->Users->gender = $_POST['gender'];
+        $this->model->Users->identify_number = $_POST['identify_number'];
+        $this->model->Users->wallet = $_POST['wallet'];
+        $this->model->Users->is_social = $_POST['is_social'];
+        $this->model->Users->status = $_POST['status'];
+        $this->model->Users->id_user_type = $_POST['id_user_type'];
+        $this->model->Users->save();
 
         go_back();
     }
 
-    /**
-    * action edit: show form edit a user
-    * method: GET
-    */
-    public function edit()
-    {
-        $this->model->load('User');
-        $user = $this->model->User->findById($_GET['id']);
-        $data = array(
-            'title' => 'edit',
-            'user' => $user
-        );
-
-        // Load view
-        $this->view->load('users/edit', $data);
-    }
-
-    /**
-    * action edit: update user database
-    * method: POST
-    */
-    public function update()
-    {
-        $this->model->load('User');
-        $user = $this->model->User->findById($_POST['id']);
-        $user->email = $_POST['email'];
-        $user->password = $_POST['password'];
-        $user->role = $_POST['role'];
-        $user->status = $_POST['status'];             ;
-        $user->update();
-
-        go_back();
-    }
 
     /**
     * action delete: show form edit a user
