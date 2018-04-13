@@ -130,12 +130,12 @@ demo = {
         marker.setMap(map);
     },
 
-	showNotification: function(from, align){
+	showNotification: function(from, align, message, icon){
     	color = Math.floor((Math.random() * 4) + 1);
 
     	$.notify({
-        	icon: "ti-gift",
-        	message: "Welcome to <b>FGShop Online</b>."
+        	icon: icon,
+        	message: message
 
         },{
             type: type[color],

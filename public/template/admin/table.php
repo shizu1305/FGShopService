@@ -3,6 +3,7 @@
                             <div class="header">
                                 <h4 class="title"><?=$table_name?></h4>
                                 <p class="category"><?=$table_subtitle?></p>
+                                <a id="btn_add" href='admin.php?controller=user&action=create&token=<?php echo $token?>'>ADD</a>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <?php
@@ -20,7 +21,8 @@
                                     </thead>
                                     <tbody>
                                        <?php foreach ($list as $row):
-                                          array_map('htmlentities', $row); ?>
+                                          array_map('htmlentities', $row);
+                                          ?>
                                        <tr>
                                        <td><?php echo implode('</td><td>', $row); ?></td>
                                        </tr>
