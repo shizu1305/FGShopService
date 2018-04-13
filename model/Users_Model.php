@@ -66,7 +66,7 @@ class Users_Model
     return $stmt->num_rows;
   }
 
-  public function getTable($pages){
+  public function getTable($pages, $token){
 
     //set the number of items to display per page
     $items_per_page = 10;
@@ -86,6 +86,33 @@ class Users_Model
       $object = $user_type->findById($row['id_user_type']);
       $role = $object->name_user_type;
       $id = $row['id'];
+
+
+      $href =  "admin.php?controller=user&action=delete&id=$id&token=$token";
+
+      $confirm = "swal({
+            title: 'Are you sure?',
+            text: 'You will not be able to recover this imaginary file!',
+            icon: 'warning',
+            buttons: [
+              'No, cancel it!',
+              'Yes, I am sure!'
+            ],
+            dangerMode: true,
+          }).then(function(isConfirm) {
+            if (isConfirm) {
+              window.location.href = '".$href."';
+              swal({
+                title: 'Shortlisted!',
+                text: 'Candidates are successfully shortlisted!',
+                icon: 'success'
+              }).then(function() {
+                form.submit(); // <--- submit form programmatically
+              });
+            } else {
+              swal('Cancelled', 'Your imaginary file is safe :)', 'error');
+            }
+      })";
       $lists[] = [
         '#' => $id,
         'Username' => $row['username'],
@@ -97,10 +124,10 @@ class Users_Model
         'Role' => $role,
 
         '<div class="text-center"><i class="ti-pencil-alt"></i></div>' =>
-        '<div class="text-center"><a href="#"><i class="ti-pencil-alt"></i></a></div>',
+        '<div class="text-center"><a href="admin.php?controller=user&action=edit&id=' . $id . '&token='.$token.'"><i class="ti-pencil-alt"></i></a></div>',
 
         '<div class="text-center"><i class="ti-close"></i></div>' =>
-        '<div class="text-center"><a href="#"><i class="ti-close"></i></a></div>',
+        '<div class="text-center"><a href="#"><i class="ti-close"  onclick="'.$confirm.'"></i></a></div>',
       ];
     }
     return $lists;

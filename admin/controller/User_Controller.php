@@ -11,7 +11,7 @@ class User_Controller extends Base_Controller
         $pages = isset($_GET['pages']) ? $_GET['pages'] : 0;
         $token = isset($_GET['token']) ? $_GET['token'] : "null";
         $this->model->load('Users');
-        $list_user = $this->model->Users->getTable($pages);
+        $list_user = $this->model->Users->getTable($pages, $token);
         $num_rows = $this->model->Users->getNumRow();
         $data = array(
             'token' => $token,
@@ -111,7 +111,7 @@ class User_Controller extends Base_Controller
     public function delete()
     {
         $this->model->load('Users');
-        $user = $this->model->User->findById($_GET['id']);
+        $user = $this->model->Users->findById($_GET['id']);
         $user->delete();
 
         go_back();
