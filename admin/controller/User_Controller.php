@@ -14,10 +14,11 @@ class User_Controller extends Base_Controller
         $list_user = $this->model->Users->getTable($pages, $token);
         $num_rows = $this->model->Users->getNumRow();
         $data = array(
-            'action_table' => 'table',
+            'page_name' => 'User',
+            'action_table' => 'index_table',
             'token' => $token,
             'pages' => $pages,
-            'title' => 'dashboard',
+            'title' => 'index',
             'table_name' => 'Users Table',
             'table_subtitle' => 'Here is a table users',
             'list' => $list_user,
@@ -25,7 +26,7 @@ class User_Controller extends Base_Controller
         );
 
         // Load view
-        $this->view->load('dashboard', $data);
+        $this->view->load('index', $data);
     }
 
     /**
@@ -42,16 +43,17 @@ class User_Controller extends Base_Controller
         $user_types = $this->model->UserType->all();
 
         $data = array(
+            'page_name' => 'User',
             'action_table' => 'edit_user',
             'action_name' => 'Edit User',
             'token' => $token,
-            'title' => 'dashboard',
+            'title' => 'edit',
             'users' => $users,
             'user_types' => $user_types,
         );
 
         // Load view
-        $this->view->load('dashboard', $data);
+        $this->view->load('index', $data);
     }
 
      /**
@@ -82,23 +84,6 @@ class User_Controller extends Base_Controller
 
 
     /**
-    * action show: show a user
-    * method: GET
-    */
-    public function show()
-    {
-        $this->model->load('User');
-        $user = $this->model->User->findById($_GET['id']);
-        $data = array(
-            'title' => 'show',
-            'user' => $user
-        );
-
-        // Load view
-        $this->view->load('users/show', $data);
-    }
-
-    /**
     * action create: create a user
     * method: GET
     */
@@ -110,15 +95,16 @@ class User_Controller extends Base_Controller
         $user_types = $this->model->UserType->all();
 
         $data = array(
-            'action_table' => 'add_user',
+            'page_name' => 'User',
+            'action_table' => 'create_user',
             'action_name' => 'Add User',
             'token' => $token,
-            'title' => 'dashboard',
+            'title' => 'index',
             'user_types' => $user_types,
         );
 
         // Load view
-        $this->view->load('dashboard', $data);
+        $this->view->load('index', $data);
     }
 
      /**
@@ -146,7 +132,7 @@ class User_Controller extends Base_Controller
 
 
     /**
-    * action delete: show form edit a user
+    * action delete: delete
     * method: GET
     */
     public function delete()
@@ -187,7 +173,8 @@ class User_Controller extends Base_Controller
 
                 if ($admin_midlleware) {
                     $token = $this->model->Users->generate_token($id);
-                    redirect_to(URL . "controller=user&action=index&pages=0&token=$token");
+                    //redirect_to(URL . "controller=user&action=index&pages=0&token=$token");
+                    redirect_to(URL . "controller=dashboard&action=index&token=$token");
                 } else {
                    redirect_to(URL . 'controller=utils&action=error&message=Not%20permission');
                 }
