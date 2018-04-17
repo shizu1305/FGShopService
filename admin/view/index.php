@@ -2,14 +2,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="public/assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="public/assets/img/favicon.png">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="public/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="public/assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>FGShop</title>
+    <title>FGShop</title>
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
 
@@ -17,10 +17,10 @@
     <link href="public/assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
-    <link href="public/assets/css/animate.min.css" rel="stylesheet"/>
+    <link href="public/assets/css/animate.min.css" rel="stylesheet" />
 
     <!--  Paper Dashboard core CSS    -->
-    <link href="public/assets/css/paper-dashboard.css" rel="stylesheet"/>
+    <link href="public/assets/css/paper-dashboard.css" rel="stylesheet" />
 
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
@@ -33,92 +33,85 @@
     <link href="public/assets/css/themify-icons.css" rel="stylesheet">
 
 </head>
+
 <body>
 
-<div class="wrapper">
+    <div class="wrapper">
 
-    <?php
-        require_once(PATH_PUBLIC . '/template/admin/sidebar.php');
-    ?>
+        <?php require_once(PATH_PUBLIC . '/template/admin/sidebar.php'); ?>
 
-    <div class="main-panel">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar bar1"></span>
-                        <span class="icon-bar bar2"></span>
-                        <span class="icon-bar bar3"></span>
-                    </button>
-                    <a class="navbar-brand" href='<?="admin.php?controller=".strtolower($page_name)."&action=index&token=$token"?>'><?=$page_name?></a>
-                </div>
-           <?php
-                    require_once(PATH_PUBLIC . '/template/admin/navbar_collapse.php');
-            ?>
-            </div>
-        </nav>
+            <div class="main-panel">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar bar1"></span>
+                                <span class="icon-bar bar2"></span>
+                                <span class="icon-bar bar3"></span>
+                            </button>
+                            <a class="navbar-brand" href='<?="admin.php?controller=".strtolower($page_name)."&action=index&token=$token"?>'>
+                                <?=$page_name?>
+                            </a>
+                        </div>
+                        <?php require_once(PATH_PUBLIC . '/template/admin/navbar_collapse.php'); ?>
+                    </div>
+                </nav>
 
-
-        <div class="content">
-            <?php
-                if ($page_name == 'Dashboard')
-                    require_once(PATH_PUBLIC . '/template/admin/container_fluid.php');
-            ?>
-                <div class="row">
-
-                <?php
-                if ($action_table != null && $page_name != "Dashboard") {
-                        require_once(PATH_PUBLIC . '/template/admin/' . $action_table . '.php');
-                    }
-                ?>
+                <div class="content">
+                    <?php
+                        if ($page_name == 'Dashboard')
+                            require_once(PATH_PUBLIC . '/template/admin/container_fluid.php');
+                    ?>
+                    <div class="row">
+                    <?php
+                        if ($action_table != null && $page_name != "Dashboard")
+                            require_once(PATH_PUBLIC . '/template/admin/' . $action_table . '.php');
+                    ?>
+                    </div>
                 </div>
             </div>
-        </div>
 
-
-         <?php
-                    require_once(PATH_PUBLIC . '/template/admin/footer.php');
-            ?>
-
+            <?php require_once(PATH_PUBLIC . '/template/admin/footer.php'); ?>
     </div>
-</div>
+    <!-- </div> -->
 
 
 </body>
 
-    <!--   Core JS Files   -->
-    <script src="public/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="public/assets/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<!--  Checkbox, Radio & Switch Plugins -->
-	<script src="public/assets/js/bootstrap-checkbox-radio.js"></script>
+<!--   Core JS Files   -->
+<script src="public/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="public/assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!--  Checkbox, Radio & Switch Plugins -->
+<script src="public/assets/js/bootstrap-checkbox-radio.js"></script>
 
-	<!--  Charts Plugin -->
-	<script src="public/assets/js/chartist.min.js"></script>
+<!--  Charts Plugin -->
+<script src="public/assets/js/chartist.min.js"></script>
 
-    <!--  Notifications Plugin    -->
-    <script src="public/assets/js/bootstrap-notify.js"></script>
+<!--  Notifications Plugin    -->
+<script src="public/assets/js/bootstrap-notify.js"></script>
 
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
-    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
-	<script src="public/assets/js/paper-dashboard.js"></script>
+<!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+<script src="public/assets/js/paper-dashboard.js"></script>
 
-	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-	<script src="public/assets/js/demo.js"></script>
-	<script type="text/javascript">
-    	$(document).ready(function(){
-            //demo.showNotification('top','center');
-    	});
+<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+<script src="public/assets/js/demo.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //demo.showNotification('top','center');
+    });
 
-        function update() {
-            demo.showNotification('top','center', 'You have updated' , 'ti-write');
-        }
+    function update() {
+        demo.showNotification('top', 'center', 'You have updated', 'ti-write');
+    }
 
-        function create() {
-            demo.showNotification('top','center', 'You have created' , 'ti-save');
-        }
-	</script>
+    function create() {
+        demo.showNotification('top', 'center', 'You have created', 'ti-save');
+    }
+</script>
+
 </html>
