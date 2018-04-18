@@ -44,11 +44,11 @@ class User_Controller extends Base_Controller
 
         $data = array(
             'page_name' => 'User',
-            'action_table' => 'edit_user',
+            'action_table' => 'user/edit',
             'action_name' => 'Edit User',
             'token' => $token,
             'title' => 'edit',
-            'users' => $users,
+            'object' => $users,
             'user_types' => $user_types,
         );
 
@@ -96,10 +96,10 @@ class User_Controller extends Base_Controller
 
         $data = array(
             'page_name' => 'User',
-            'action_table' => 'create_user',
+            'action_table' => 'user/create',
             'action_name' => 'Add User',
             'token' => $token,
-            'title' => 'index',
+            'title' => 'create',
             'user_types' => $user_types,
         );
 
