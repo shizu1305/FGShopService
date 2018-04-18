@@ -7,7 +7,7 @@
       <p class="category">
         <?=$table_subtitle?>
       </p>
-      <a id="btn_add" href='admin.php?controller=user&action=create&token=<?php echo $token?>'>ADD</a>
+      <a id="btn_add" href='admin.php?controller=<?=$page_name?>&action=create&token=<?php echo $token?>'>ADD</a>
     </div>
     <div class="content table-responsive table-full-width">
       <?php
