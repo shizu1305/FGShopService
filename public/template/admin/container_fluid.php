@@ -58,7 +58,7 @@
 
 
         <div class="col-lg-3 col-sm-6">
-            <a href="admin.php?controller=user&action=index&pages=0&token=<?=$token?>">
+            <a href="admin.php?controller=image&action=index&pages=0&token=<?=$token?>">
                 <div class="card">
                     <div class="content">
                         <div class="row">
@@ -69,7 +69,7 @@
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Images</p>
+                                    <p>Image</p>
                                     250
                                 </div>
                             </div>
