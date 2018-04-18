@@ -9,23 +9,28 @@
             <form action="admin.php?controller=<?=$page_name?>&action=store&token=<?=$token?>" method="post">
 
                   <div class="row">
-                      <div class="col-md-2">
+                      <div class="col-md-1">
                           <div class="form-group">
                               <label>#ID</label>
                               <input name="id" type="text" class="form-control border-input" disabled placeholder="ID" value="#">
                           </div>
                       </div>
 
+                      <div class="col-md-3">
+                          <div class="form-group">
+                              <label>Name Image</label>
+                              <input name="name_img" type="text" class="form-control border-input" placeholder="Big Image" value="">
+                          </div>
+                      </div>
 
-
-                      <div class="col-md-5">
+                      <div class="col-md-4">
                           <div class="form-group">
                               <label>Big Image</label>
                               <input name="big_img" type="text" class="form-control border-input" placeholder="Big Image" value="">
                           </div>
                       </div>
 
-                       <div class="col-md-5">
+                       <div class="col-md-4">
                           <div class="form-group">
                               <label>Small Image</label>
                               <input name="small_img" type="text" class="form-control border-input" placeholder="Small Image" value="">
