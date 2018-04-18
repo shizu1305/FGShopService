@@ -6,6 +6,7 @@ class Image_Model
 {
 
   public $id;
+  public $name_img;
   public $big_img;
   public $small_img;
   public $details_img;
@@ -27,6 +28,7 @@ class Image_Model
     while ($row = mysqli_fetch_assoc($result)){
       $image = new Image_Model();
       $image->id = $row['id'];
+      $image->name_img = $row['name_img'];
       $image->big_img = $row['big_img'];
       $image->small_img = $row['small_img'];
       $image->details_img = $row['details_img'];
@@ -93,9 +95,10 @@ class Image_Model
       })";
       $lists[] = [
         '#' => $id,
-        'big_img' => $row['big_img'],
-        'small_img' => $row['small_img'],
-        'details_img' => $row['details_img'],
+        'Name' => $row['name_img'],
+        'Big' => $row['big_img'],
+        'Small' => $row['small_img'],
+        'Details' => $row['details_img'],
 
         '<div class="text-center"><i class="ti-pencil-alt"></i></div>' =>
         '<div class="text-center"><a href="admin.php?controller='. $controller . '&action=edit&id=' . $id . '&token='.$token.'"><i class="ti-pencil-alt"></i></a></div>',
@@ -109,8 +112,8 @@ class Image_Model
 
   public function save(){
     $conn = FT_Database::instance()->getConnection();
-    $stmt = $conn->prepare("INSERT INTO image (big_img, small_img, details_img) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $this->big_img, $this->small_img, $this->details_img);
+    $stmt = $conn->prepare("INSERT INTO image (name, big_img, small_img, details_img) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("sss", $this->name_img, $this->big_img, $this->small_img, $this->details_img);
     $rs = $stmt->execute();
     $this->id = $stmt->insert_id;
     $stmt->close();
@@ -126,6 +129,7 @@ class Image_Model
     $row = mysqli_fetch_assoc($result);
         $image = new Image_Model();
         $image->id = $row['id'];
+        $image->name_img = $row['name_img'];
         $image->big_img = $row['big_img'];
         $image->small_img = $row['small_img'];
         $image->details_img = $row['details_img'];
@@ -140,8 +144,8 @@ class Image_Model
   }
   public function update(){
     $conn = FT_Database::instance()->getConnection();
-    $stmt = $conn->prepare("UPDATE image SET big_img = ?, small_img = ?, details_img = ? WHERE id=?");
-    $stmt->bind_param("sssi", $this->big_img, $this->small_img, $this->details_img, $_GET['id']);
+    $stmt = $conn->prepare("UPDATE image SET name_img = ?, big_img = ?, small_img = ?, details_img = ? WHERE id=?");
+    $stmt->bind_param("ssssi", $this->name_img, $this->big_img, $this->small_img, $this->details_img, $_GET['id']);
     $stmt->execute();
     $stmt->close();
   }

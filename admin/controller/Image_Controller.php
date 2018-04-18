@@ -61,6 +61,7 @@ class Image_Controller extends Base_Controller
     {
         $this->model->load('Image');
         $Image = $this->model->Image->findById($_GET['id']);
+        $Image->name_img = $_POST['name_img'];
         $Image->big_img = $_POST['big_img'];
         $Image->small_img = $_POST['small_img'];
         $Image->details_img = $_POST['details_img'];
@@ -98,6 +99,7 @@ class Image_Controller extends Base_Controller
     public function store()
     {
         $this->model->load('Image');
+        $this->model->Image->name_img = $_POST['name_img'];
         $this->model->Image->big_img = $_POST['big_img'];
         $this->model->Image->small_img = $_POST['small_img'];
         $this->model->Image->details_img = $_POST['details_img'];
