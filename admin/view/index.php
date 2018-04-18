@@ -50,7 +50,7 @@
                                 <span class="icon-bar bar2"></span>
                                 <span class="icon-bar bar3"></span>
                             </button>
-                            <a class="navbar-brand" href='<?="admin.php?controller=".strtolower($page_name)."&action=index&token=$token"?>'>
+                            <a class="navbar-brand" href='<?="admin.php?controller=".$page_name."&action=index&token=$token"?>'>
                                 <?=$page_name?>
                             </a>
                         </div>

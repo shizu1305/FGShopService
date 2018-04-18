@@ -16,6 +16,7 @@ class FT_Database{
   }
   public function db_connect(){
     $this->conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    mysqli_set_charset($this->conn, 'utf8');
     if(!$this->conn){
       die('Fail connect to database'.mysqli_connect_error());
     }

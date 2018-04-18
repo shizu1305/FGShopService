@@ -15,7 +15,7 @@
     $action = empty($_GET['action']) ? $config['default_action'] : $_GET['action'];
 
     //Convert name controller because format is {Name}_Controller
-    $controller = ucfirst(strtolower(($controller))) . '_Controller';
+    $controller = ucfirst(($controller)) . '_Controller';
 
     //Convert name action because format is {name}Action
     $action = strtolower($action);
