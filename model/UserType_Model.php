@@ -48,7 +48,7 @@ class UserType_Model
 
     //set the number of items to display per page
     $items_per_page = 10;
-    $controller = 'usertype';
+    $controller = 'UserType';
 
     $conn = FT_Database::instance()->getConnection();
 
