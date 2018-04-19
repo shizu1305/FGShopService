@@ -115,3 +115,9 @@
 #btn_add:hover {
     background-color: #f39c12;
 }
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
