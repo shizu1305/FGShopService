@@ -17,4 +17,17 @@ class Order_Model
   {
     # code...
   }
+
+  public function getNumRow() {
+    $conn = FT_Database::instance()->getConnection();
+    $stmt = $conn->prepare("SELECT id FROM image");
+
+    $stmt->execute();
+    $stmt->bind_result($id);
+    $stmt->store_result();
+    /*Fetch the value*/
+    $stmt->fetch();
+
+    return $stmt->num_rows;
+  }
 }

@@ -13,7 +13,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Users Type</p>
-                                    250
+                                    <?php echo $num_row_usertype;?>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Users</p>
-                                    250
+                                    <?php echo $num_row_user;?>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Image</p>
-                                    250
+                                    <?php echo $num_row_image;?>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Brands</p>
-                                    250
+                                    <?php echo $num_row_brand;?>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Group Type</p>
-                                    250
+                                    <?php echo $num_row_grouptype;?>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +157,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Type</p>
-                                    250
+                                    <?php echo $num_row_type;?>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Product</p>
-                                    250
+                                    <?php echo $num_row_product;?>
                                 </div>
                             </div>
                         </div>
@@ -215,7 +215,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Order</p>
-                                    250
+                                    <?php echo $num_row_order;?>
                                 </div>
                             </div>
                         </div>
