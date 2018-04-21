@@ -6,8 +6,14 @@
   //define('DB_PASSWORD', '');
   //define('DB_NAME', 'fgshop');
   #Database of Ken
+  // define('DB_HOST', 'localhost');
+  // define('DB_USER', 'root');
+  // define('DB_PASSWORD', 'admin');
+  // define('DB_NAME', 'FGShop');
+
+  #Database of Vu
   define('DB_HOST', 'localhost');
   define('DB_USER', 'root');
-  define('DB_PASSWORD', 'admin');
-  define('DB_NAME', 'FGShop');
+  define('DB_PASSWORD', '');
+  define('DB_NAME', 'fgshop');
  ?>
