@@ -21,6 +21,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="public/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="public/assets/css/bootstrap-glyphicons.css" rel="stylesheet">
 
     <!-- Animation library for notifications   -->
     <link href="public/assets/css/animate.min.css" rel="stylesheet" />
