@@ -24,7 +24,7 @@ class User_Controller extends Base_Controller
                 $user_type = $this->model->UserType->findById($id_user_type);
                 $role = $user_type->name_user_type;
                 // Set a response code
-                var_dump(http_response_code(200));
+                http_response_code(200);
                 array_push($json, [
                     'token' => $user->token,
                     'role' => $role,
@@ -45,7 +45,7 @@ class User_Controller extends Base_Controller
             } else {
                 /* Login failed */
                 // Set a response code
-                var_dump(http_response_code(401));
+                http_response_code(401);
                 array_push($json, [
                     'message' => 'Unauthorized'
                 ]);
@@ -61,19 +61,39 @@ class User_Controller extends Base_Controller
     */
 
     public function logout() {
+        $json = [];
+        echo "{";
+        echo "\"user\":";
         if(isset($_GET['token'])) {
             $token = $_GET['token'];
             $this->model->load('Users');
             $id = $this->model->Users->validate_logout($_GET['token']);
             if($id != 0) {
+                // Set a response code
+                http_response_code(200);
                 $this->model->Users->remove_token($id);
                  /*Logout success*/
+                 array_push($json, [
+                     'message' => 'Logout success',
+                 ]);
             } else {
+                // Set a response code
+                http_response_code(401);
                  /*Logout failed*/
+                 array_push($json, [
+                    'message' => 'Unauthorized user',
+                ]);
             }
         } else {
+            // Set a response code
+            http_response_code(400);
             /*Token not exists*/
+            array_push($json, [
+                'message' => 'Token not exists',
+            ]);
         }
+        echo json_encode($json, JSON_UNESCAPED_UNICODE);
+        echo "}";
     }
 
 }
