@@ -49,6 +49,17 @@
                       </div>
                     </div>
 
+
+                    <!-- Test Image File -->
+                    <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                              <label>Image Test</label>
+                              <input name="big_img" id="big_img" type="file" class="file" data-preview-file-type="any" data-upload-url="#">
+                          </div>
+                      </div>
+                    </div>
+
                     <div class="text-center">
                         <button type="submit" class="btn btn-info btn-fill btn-wd" onclick="create()">Add <?=$page_name?></button>
                     </div>
