@@ -3,12 +3,12 @@
   define('PATH_ROOT', __DIR__);
   define('PATH_PUBLIC', __DIR__.'/public');
   define('PATH_SYSTEM', __DIR__.'/system');
-  define('PATH_APPLICATION', __DIR__.'/admin');
+  define('PATH_APPLICATION', __DIR__.'/api');
   define('PATH_MODEL', __DIR__.'/model');
   //url of ken
-  // define('URL', 'http://localhost/mvc/FGShop/admin.php?');
-  // //url of thy
-  // define('URL', 'http://localhost:3060/FGProject/FGShopService/admin.php?');
+  //define('URL', 'http://localhost/mvc/FGShop/admin.php?');
+  //url of thy
+  define('URL', 'http://localhost:3060/FGProject/FGShopService/admin.php?');
   //Get Parameter config
   require (PATH_SYSTEM . '/config/config.php');
 
