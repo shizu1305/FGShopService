@@ -12,8 +12,14 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
+    <!--  Fonts and icons     -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS     -->
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+
+    <link href="public/assets/css/themify-icons.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
     <link href="public/assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
@@ -22,15 +28,12 @@
     <!--  Paper Dashboard core CSS    -->
     <link href="public/assets/css/paper-dashboard.css" rel="stylesheet" />
 
+    <!-- Fileinput core CSS -->
+    <link href="public/assets/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="public/assets/css/demo.css" rel="stylesheet" />
 
-
-    <!--  Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-    <link href="public/assets/css/themify-icons.css" rel="stylesheet">
 
 </head>
 
@@ -80,20 +83,20 @@
 </body>
 
 <!--   Core JS Files   -->
-<script src="public/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="public/assets/js/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script src="public/assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Sweet alert  -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<!-- Flieinput Plugin  -->
+<script src="public/assets/js/fileinput.js" type="text/javascript"></script>
+
 <!--  Checkbox, Radio & Switch Plugins -->
 <script src="public/assets/js/bootstrap-checkbox-radio.js"></script>
 
-<!--  Charts Plugin -->
-<script src="public/assets/js/chartist.min.js"></script>
-
 <!--  Notifications Plugin    -->
 <script src="public/assets/js/bootstrap-notify.js"></script>
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 <script src="public/assets/js/paper-dashboard.js"></script>

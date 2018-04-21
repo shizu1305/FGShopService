@@ -20,12 +20,12 @@
                 </a>
             </li>
             <!-- Table -->
-            <li <?php echo $page_name=='User' ? "class='active'" : "" ?>>
+            <!-- <li <?php echo $page_name=='User' ? "class='active'" : "" ?>>
                 <a href='<?="admin.php?controller=user&action=index&token=$token"?>'>
                     <i class="ti-view-list-alt"></i>
                     <p>Table List</p>
                 </a>
-            </li>
+            </li> -->
 
             <li class="active-pro">
                 <a href="admin.php?controller=user&action=logout&token=<?=$token?>">

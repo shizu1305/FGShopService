@@ -56,14 +56,16 @@ class Users_Model
   public function getNumRow() {
     $conn = FT_Database::instance()->getConnection();
     $stmt = $conn->prepare("SELECT id FROM users");
-
-    $stmt->execute();
-    $stmt->bind_result($id);
-    $stmt->store_result();
-    /*Fetch the value*/
-    $stmt->fetch();
-
-    return $stmt->num_rows;
+    if ($stmt) {
+      $stmt->execute();
+      $stmt->bind_result($id);
+      $stmt->store_result();
+      /*Fetch the value*/
+      $stmt->fetch();
+      return $stmt->num_rows;
+    } else {
+      return 0;
+    }
   }
 
   public function getTable($pages, $token){

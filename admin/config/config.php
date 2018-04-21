@@ -2,6 +2,6 @@
 
   return [
     'csrf_token_name' => 'tokenname',
-    'base_url' => 'http://localhost:3060/FGProject/FGShopService'
+    'base_url' => 'http://localhost/mvc/FGShop'
   ];
  ?>

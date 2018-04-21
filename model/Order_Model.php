@@ -20,14 +20,16 @@ class Order_Model
 
   public function getNumRow() {
     $conn = FT_Database::instance()->getConnection();
-    $stmt = $conn->prepare("SELECT id FROM image");
-
-    $stmt->execute();
-    $stmt->bind_result($id);
-    $stmt->store_result();
-    /*Fetch the value*/
-    $stmt->fetch();
-
-    return $stmt->num_rows;
+    $stmt = $conn->prepare("SELECT id FROM order");
+    if ($stmt) {
+      $stmt->execute();
+      $stmt->bind_result($id);
+      $stmt->store_result();
+      /*Fetch the value*/
+      $stmt->fetch();
+      return $stmt->num_rows;
+    } else {
+      return 0;
+    }
   }
 }
